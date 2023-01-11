@@ -1,4 +1,6 @@
-# Talk: O Backstage do CSS
+# Talk: Debugando CSS com DevTools
+
+Debugar é a arte de remover bugs, e nessa talk vamos explorar as diversas ferramentas para debugar CSS utilizando o DevTools.
 
 > Feito usando [Slidev](https://github.com/slidevjs/slidev)!
 

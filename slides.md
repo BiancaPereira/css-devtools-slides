@@ -1,13 +1,12 @@
 ---
 theme: ./theme
 highlighter: prism
-title: O Backstage do CSS
+title: Dicas para Debugar o CSS
 lineNumbers: true
 ---
 
-# O <span class="text-pink-500">Backstage</span> do CSS
+## Debugando <u>CSS</u> com <span class="text-pink-500">DevTools</span>
 
-Bora aprender como o CSS funciona por baixo dos panos?
 <div class="justify-center">
   <img src="/assets/icons/oculos-estrelinha.svg" class="h-40 m-10" />
 </div>
@@ -31,201 +30,46 @@ Bora aprender como o CSS funciona por baixo dos panos?
 
 ---
 
-# "O CSS é fácil de <span class="text-pink-500">aprender</span>, mas difícil de <span class="text-pink-500">dominar</span>"
-<img src="/assets/icons/confusa.svg" class="h-40" />
+# <span class="text-pink-500">Debugar</span> é a arte de remover os <u>bugs</u> de um sistema
 
 ---
 
-### Transformando código em pixels
+### Nosso melhor amigo: o <span class="text-pink-500">Devtools</span>
 
-- Entender como o browser funciona
-- Cada navegador tem sua forma de renderizar o conteúdo na tela
-- <span class="text-pink-500">Critical Rendering Path</span> **(CRP)**
-- Performance <twemoji-rocket />
+- Inspecionando elementos
+- Painel de comandos: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
 
 ---
 
-### <span class="text-pink-500">5 passos</span> do CRP
+### Explorando o Devtools
 
-```mermaid { theme: 'default', scale: 2 }
-flowchart LR
-  A[DOM] --> B[CSSOM]
-  B --> C[Render Tree]
-  C --> D[Layout]
-  D --> E[Paint]
-```
+- Aba elementos
+- Aba styles
+- Aba console
+- Aba computed
+- Aba layout
 
 ---
 
-### Fase 1 - <span class="text-pink-500">DOM</span> (Document Object Model)
+## CSS Grid
 
-- Árvore criada a partir do HTML
-- A árvore é composta de vários nós (nodes)
-- Se organiza de forma hierárquica
-- Quanto mais nós a árvore possuir, mas tempo o browser leva para construí-la
-
-<h2><twemoji-backhand-index-pointing-right-medium-skin-tone /></h2>
-
----
-
-### <span class="text-pink-500">Exemplo</span> - DOM
-
-<div class="flex items-center">
-
-<span class="m-5">
-```html {all|1,11|2,4|3|6,10|7|8|9}
-<html>
-  <head>
-    <title>Exemplo</title>
-  </head>
-
-  <body>
-    <h1>Título</h1>
-    <p>Parágrafo</p>
-    <span>Texto</span>
-  </body>
-</html>
-```
-</span>
-
-<span class="m-5">
-```mermaid { theme: 'default', scale: 1.5 }
-flowchart
-  A[html] --> B[head]
-  B --> C[title]
-  C --> I[Exemplo]:::content
-  A --> D[body]
-  D --> E[h1]
-  E --> H[Título]:::content
-  D --> F[p]
-  F --> G[Parágrafo]:::content
-  D --> K[span]
-  K --> L[Texto]:::content
-  classDef content fill: #f0f0f0, stroke: #ccc
-```
-</span>
-
-</div>
+<iframe height="300" style="width: 100%;" scrolling="no" title="CSS Grid Layout" src="https://codepen.io/MSEdgeDev/embed/mMQqZX?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/MSEdgeDev/pen/mMQqZX">
+  CSS Grid Layout</a> by MSEdgeDev (<a href="https://codepen.io/MSEdgeDev">@MSEdgeDev</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ---
 
-### Fase 2 - <span class="text-pink-500">CSSOM</span> (CSS Object Model)
-
-- Árvore criada a partir do CSS
-- Estrutura similar a árvore DOM
-- Essa árvore é criada de forma <span class="text-pink-500">muito rápida</span>
-- Seletores com menos níveis são mais rápidos do que os com mais níveis
-
-<h2><twemoji-backhand-index-pointing-right-medium-skin-tone /></h2>
+## CSS Flex
 
 ---
 
-### <span class="text-pink-500">Exemplo</span> - CSSOM
-
-<div class="flex items-center">
-
-<span class="m-5">
-```css {all|1-3|5-7|9-11|13-15}
-h1 {
-  color: red;
-}
-
-p {
-  color: blue;
-}
-
-body p {
-  color: green;
-}
-
-span {
-  display: none;
-}
-```
-</span>
-
-<span class="m-5">
-```mermaid { theme: 'default', scale: 1.5 }
-flowchart
-  D[body] --> E[h1]
-  E --> H[color: red]:::styleContent
-  D --> F[p]
-  F --> G["<strike>color: blue</strike>\n color: green"]:::styleContent
-  D --> K[span]
-  K --> L[display: none]:::styleContent
-  classDef styleContent fill: #ffe98a, stroke: #e0c54f
-```
-</span>
-
-</div>
+## Media queries
 
 ---
 
-### Fase 3 - <span class="text-pink-500">Render Tree</span>
-
-- Nesta fase, o browser combina as duas árvores (DOM e CSSOM)
-- O navegador checa cada nó e verifica se ele tem um estilo associado
-- Nós **invisíveis** não estão presentes na render tree (`display: none`)
-
-<h2><twemoji-backhand-index-pointing-right-medium-skin-tone /></h2>
-
----
-
-### <span class="text-pink-500">Exemplo</span> - Render Tree (DOM + CSSOM)
-
-<div class="flex items-center">
-
-<span class="m-5">
-```mermaid { theme: 'default', scale: 1.5 }
-flowchart
-  D[body] --> E[h1]
-  E --> J[Título]:::content
-  E --> H[color: red]:::styleContent
-  D --> F[p]
-  F --> I[Parágrafo]:::content
-  F --> G["<strike>color: blue</strike>\n color: green"]:::styleContent
-  classDef styleContent fill: #ffe98a, stroke: #e0c54f
-  classDef content fill: #f0f0f0, stroke: #ccc
-```
-</span>
-
-<img src="/assets/icons/emocionada.svg" class="h-40" />
-
-</div>
-
----
-
-### Fase 4 - <span class="text-pink-500">Layout</span>
-
-- É o processo que determina o tamanho e o posicionamento de cada elemento da página
-- Sempre que a render tree é modificada, o processo de layout é ativado
-- **Reflow** é a mudança do layout após o primeiro carregamento
-- Travamentos no scrolling e em animações
-
-<h2><twemoji-backhand-index-pointing-right-medium-skin-tone /></h2>
-
----
-
-### <span class="text-pink-500">Exemplo</span> - Layout e Reflow
-
-- Um documento HTML possui uma tag `<img>`
-- Esse HTML é renderizado e o <span class="text-pink-500">**layout**</span> é calculado
-- Essa imagem só vai ser baixada depois que o HTML for renderizado
-- Você não determinou o `width` e o `height` da imagem
-- Quando a imagem carregar, um processo de <span class="text-pink-500">**reflow**</span> ocorrerá
-
-<div class="justify-center">
-  <img src="/assets/icons/chocada.svg" class="h-40 m-10" />
-</div>
-
----
-
-### Fase 5 - <span class="text-pink-500">Paint</span>
-
-- É o responsável por <span class="text-pink-500">pintar os pixels</span> na tela
-- Após o primeiro paint, as execuções seguintes são chamadas de **repaint**
-- Esse processo acontece de forma bem rápida
-- O tempo de repaiting é de acordo com a mudança que foi feita
+## Coverage
 
 ---
 
