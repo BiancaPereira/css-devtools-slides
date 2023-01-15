@@ -36,40 +36,89 @@ lineNumbers: true
 
 ### Nosso melhor amigo: o <span class="text-pink-500">Devtools</span>
 
-- Inspecionando elementos
-- Painel de comandos: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+- **DevTools**: Ferramenta do desenvolvedor
+- Pressione <kbd>F12</kbd> ou clique no botão direito do mouse e selecione **Inspecionar**
 
 ---
 
 ### Explorando o Devtools
 
-- Aba elementos
-- Aba styles
-- Aba console
-- Aba computed
-- Aba layout
+1. Aba elementos
+2. Aba styles
+3. Aba console
+4. Aba computed
+
+<p>
+  <twemoji-backhand-index-pointing-right />
+  <a target="_blank" href="https://codepen.io/BiancaPereira/full/rLKOoE"> Exemplo</a>
+</p>
+
 
 ---
 
 ## CSS Grid
 
-<iframe height="300" style="width: 100%;" scrolling="no" title="CSS Grid Layout" src="https://codepen.io/MSEdgeDev/embed/mMQqZX?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/MSEdgeDev/pen/mMQqZX">
-  CSS Grid Layout</a> by MSEdgeDev (<a href="https://codepen.io/MSEdgeDev">@MSEdgeDev</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+```css
+.wrapper {
+  display: grid;
+}
+```
+
+<p>
+  <twemoji-backhand-index-pointing-right />
+  <a target="_blank" href="https://codepen.io/BiancaPereira/full/LqzPda"> Exemplo</a>
+</p>
 
 ---
 
 ## CSS Flex
 
+```css
+.wrapper {
+  display: flex;
+}
+```
+
+<p>
+  <twemoji-backhand-index-pointing-right />
+  <a target="_blank" href="https://codepen.io/BiancaPereira/full/MLvwEV"> Exemplo</a>
+</p>
+
 ---
 
-## Media queries
+## Animações e transições
+
+```css
+@keyframes nome-animacao {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+div {
+  animation-name: nome-animacao;
+  animation-duration: 4s;
+}
+```
+
+<p>
+  <twemoji-backhand-index-pointing-right />
+  <a target="_blank" href="https://codepen.io/syedrafeeq/full/QWKvYQ"> Exemplo</a>
+</p>
 
 ---
 
-## Coverage
+## Console.log do CSS
+
+```css
+* {
+  border: 1px solid red;
+}
+```
+
+<p>
+  <twemoji-backhand-index-pointing-right />
+  <a target="_blank" href=""> Exemplo</a>
+</p>
 
 ---
 
@@ -85,7 +134,7 @@ lineNumbers: true
 
   <div>
     <strong class="uppercase text-3xl">
-      <twemoji-sparkles /> <a href="https://biancapereira.github.io/bibi-garden/CSS%20backstage/Como%20o%20CSS%20funciona%3F/">Referências</a> <twemoji-sparkles />
+      <twemoji-sparkles /> <a href="https://developer.chrome.com/docs/devtools/css/">Referências</a> <twemoji-sparkles />
     </strong>
     <ul class="text-3xl">
       <li>LinkedIn: <a href="https://www.linkedin.com/in/biancacpereira">biancacpereira</a></li>
