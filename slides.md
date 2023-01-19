@@ -5,7 +5,7 @@ title: Dicas para Debugar o CSS
 lineNumbers: true
 ---
 
-## Debugando <u>CSS</u> com <span class="text-pink-500">DevTools</span>
+## Debugando <u>CSS</u> com <span class="text-pink-600">DevTools</span>
 
 <div class="justify-center">
   <img src="/assets/icons/oculos-estrelinha.svg" class="h-40 m-10" />
@@ -21,7 +21,7 @@ lineNumbers: true
   <img src="/assets/images/killua.jpeg" class="h-30 rounded-1/2 m-5" />
 </div>
 
-<span class="text-pink-500">**Bianca Pereira**</span>
+<span class="text-pink-600">**Bianca Pereira**</span>
 - <twemoji-laptop /> Sênior frontend developer **@Grupo Boticário**
 - <twemoji-books /> Ciências da Computação, MBA em Engenharia de Software
 - <twemoji-cat-face /> Mãe de gatos
@@ -30,11 +30,11 @@ lineNumbers: true
 
 ---
 
-# <span class="text-pink-500">Debugar</span> é a arte de remover os <u>bugs</u> de um sistema
+# <span class="text-pink-600">Debugar</span> é a arte de remover os <u>bugs</u> de um sistema
 
 ---
 
-### Nosso melhor amigo: o <span class="text-pink-500">Devtools</span>
+### Nosso melhor amigo: o <span class="text-pink-600">Devtools</span>
 
 - **DevTools**: Ferramenta do desenvolvedor
 - Pressione <kbd>F12</kbd> ou clique no botão direito do mouse e selecione **Inspecionar**
@@ -117,7 +117,7 @@ div {
 
 <p>
   <twemoji-backhand-index-pointing-right />
-  <a target="_blank" href=""> Exemplo</a>
+  <a target="_blank" href="https://codepen.io/BiancaPereira/full/bByxpr"> Exemplo</a>
 </p>
 
 ---

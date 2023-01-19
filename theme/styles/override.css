@@ -67,7 +67,8 @@
   }
 
   a, a:hover {
-    @apply border-none text-[#f472b6];
+    @apply border-none text-[#db2777];
+    text-decoration: underline;
   }
 
   a:hover {
